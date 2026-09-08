@@ -1,0 +1,177 @@
+======================================================================
+BUSINESS CONTEXT — D.R. SANTÉ & BEAUTÉ
+======================================================================
+
+IDENTITY
+--------
+Name: D.R. Santé & Beauté
+Type: Beauty Salon (Institut de Beauté)
+Slogan: House of Beauty · From Paris
+Address: 50 Rue Popincourt, 75011 Paris
+District: 11th Arrondissement, Paris
+Telephone: 09 80 29 88 88
+Hours: Monday — Saturday · 10am — 8pm
+
+BRAND VALUES
+------------
+Signature Quote: "Authentic beauty is cultivated with time and passion."
+Core Values: Craftsmanship, Excellence, Parisian Elegance
+
+======================================================================
+COMPLETE PRICE LIST (77 SERVICES)
+======================================================================
+
+⭐ SIGNATURE TREATMENT — Facial Care
+--------------------------------------------------
+Description: 40 minutes of escape. An exclusive protocol that awakens your skin's natural radiance, from deep cleansing to sculpting massage.
+Duration: 40 minutes
+Price: 49 €
+
+I. HAIR REMOVAL (WAXING)
+==================================================
+Services (Prices for Women / Men):
+  • Eyebrows                  W: 8€      M: 12€
+  • Lip                       W: 7€      M: —
+  • Nostrils                  W: 8€      M: 10€
+  • Chin                      W: 7€      M: —
+  • Ears                      W: 8€      M: 10€
+  • Full Face                 W: 30€     M: —
+  • Neck                      W: 7€      M: —
+  • Underarms                 W: 10€     M: 15€
+  • Half Arms                 W: 13€     M: 15€
+  • Full Arms                 W: 15€     M: 20€
+  • Chest                     W: 20€     M: 25€
+  • Stomach                   W: 10€     M: 12€
+  • Back                      W: 25€     M: 28€
+  • Basic Bikini              W: 15€     M: —
+  • Extended Bikini           W: 20€     M: —
+  • Brazilian (Full)          W: 30€     M: —
+  • Half Legs                 W: 19€     M: —
+  • Full Legs                 W: 28€     M: —
+
+→ Hair Removal Packages
+  • Half Legs + Underarms + Basic Bikini               35€
+  • Half Legs + Underarms + Extended Bikini           40€
+  • Half Legs + Underarms + Brazilian                  48€
+  • Full Legs + Underarms + Basic Bikini               43€
+  • Full Legs + Underarms + Extended Bikini           48€
+  • Full Legs + Underarms + Brazilian                  55€
+
+II. RELAXING TREATMENTS
+==================================================
+→ Chinese Massage
+  • Relaxing Massage (30 min)                30€
+  • Relaxing Massage (60 min)                50€
+
+→ Targeted Treatments
+  • Feet (30 min)                            25€
+  • Shoulders & Neck (15 min)                15€
+
+III. EYELASH EXTENSIONS
+==================================================
+Services:
+  • Extensions - Natural                55€
+  • Extensions - Glamour                65€
+  • Refill at 3 weeks                   35€
+  • Refill at 4 weeks                   45€
+  • Lash Removal                        20€
+
+IV. HAND CARE (BEAUTÉ DES MAINS)
+==================================================
+→ Polish Application
+  • Polish Classic                           10€
+  • Polish French                            13€
+  • Gel Polish (Semi-Permanent)              25€
+
+→ Manicures
+  • Manicure no polish                       15€
+  • Manicure with classic                    18€
+  • Manicure with gel polish                 30€
+
+→ SPA Ritual (With Mask)
+  • SPA no polish                            25€
+  • SPA classic                              35€
+  • SPA gel polish                           45€
+
+→ Gel Polish Removal
+  • Removal without new application          8€
+  • Removal with new application             5€
+
+V. FOOT CARE (BEAUTÉ DES PIEDS)
+==================================================
+→ Cut & Polish
+  • Nail Trim only                           10€
+  • Trim + classic polish                    12€
+
+→ Foot Care
+  • Feet no polish                           27€
+  • Feet + classic polish                    35€
+  • Feet + gel polish                        45€
+
+→ SPA Ritual (With Mask)
+  • SPA no polish                            40€
+  • SPA classic polish                       44€
+  • SPA gel polish                           55€
+
+→ Gel Polish Removal
+  • Removal without new application          10€
+  • Removal with new application             5€
+
+VI. NAIL EXTENSIONS (FAUX-ONGLES)
+==================================================
+→ Acrylic Application (Pose Résine)
+  • Acrylic no color                         30€
+  • Acrylic + classic polish                 35€
+  • Acrylic + gel polish                     45€
+
+→ Gel Application
+  • Gel + gel polish                         50€
+  • Builder Gel + gel polish                 65€
+
+→ Refill (Complimentary Removal)
+  Note: Removal is free of charge when combined with a refill.
+  • Acrylic + classic polish                 30€
+  • Acrylic + gel polish                     40€
+  • Gel + gel polish                         45€
+  • Builder Gel + gel polish                 60€
+
+→ Finishes & Add-ons
+  • Nail Extension Removal                   15€
+  • Nail Art (per nail)                      1€
+  • French Simple (add-on)                   5€
+
+==================================================
+⭐ SIGNATURE RITUALS
+==================================================
+Three Manicure / Pedicure compositions, for complete beauty.
+
+N° 01 · The Classic
+  Type: Manucure / Pédicure with classic polish
+  Price: 50 €
+
+N° 02 · The Precious
+  Type: Manucure / Pédicure with gel polish
+  Price: 75 €
+
+N° 03 · The Exception
+  Type: Manucure / Pédicure with gel polish
+  Price: 85 €
+  ★ Removal included / Complimentary removal
+
+==================================================
+NEW ARRIVALS — « Plus »
+==================================================
+  • French Simple                            5€
+  • Mirror Effect                            10€
+  • Cat Eye Gel                              10€
+  • Baby Boomer                              10€
+  • Relaxing Foot Massage — 10 min          10€
+  • Relaxing Foot Massage — 20 min          18€
+  • Scrub (Gommage)                          5€
+
+======================================================================
+AI CONVERSATION RULES & STATS
+======================================================================
+- Total Services: 77
+- Price Range: 1€ — 85€
+- Instruction: Always reply politely in the language used by the customer (English/French/Chinese). Strictly adhere to this official price and duration grid.

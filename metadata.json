@@ -1,0 +1,8 @@
+{
+  "name": "D.R. Santé & Beauté",
+  "description": "Site web officiel pour l'institut de beauté D.R. Santé & Beauté situé à Paris 11. Réservation en ligne, gestion dynamique du catalogue des tarifs et soins, présentation des prestations et avis clients.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

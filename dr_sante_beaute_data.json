@@ -1,0 +1,265 @@
+{
+  "business": {
+    "name": "D.R. Santé & Beauté",
+    "type": "Institut de Beauté",
+    "slogan_fr": "Maison de Beauté · Depuis Paris",
+    "slogan_en": "House of Beauty · From Paris",
+    "address": "50 Rue Popincourt, 75011 Paris",
+    "district": "Paris 11ème arrondissement",
+    "phone": "09 80 29 88 88",
+    "phone_mobile": "07 87 32 49 22",
+    "hours": "Lundi — Samedi · 10h — 20h",
+    "scheduleSunday": "Dimanche : Fermé",
+    "philosophy_fr": "La beauté authentique se cultive avec le temps et la passion.",
+    "philosophy_en": "Authentic beauty is cultivated with time and passion."
+  },
+  "signature_treatment": {
+    "name_fr": "Soin du Visage",
+    "name_en": "Facial Care",
+    "duration": "60 min",
+    "price": 49,
+    "description_fr": "Une heure d'évasion. Un protocole exclusif qui réveille l'éclat naturel de votre peau.",
+    "description_en": "One hour of escape. An exclusive protocol that awakens your skin's natural radiance."
+  },
+  "signature_rituals": [
+    {
+      "number": "01",
+      "name": "N° 01 — Le Classique",
+      "description": "Mains & Pieds avec couleur classique",
+      "price": 50,
+      "duration": "60 min"
+    },
+    {
+      "number": "02",
+      "name": "N° 02 — Le Précieux",
+      "description": "Mains & Pieds en semi-permanent",
+      "price": 75,
+      "duration": "75 min"
+    },
+    {
+      "number": "03",
+      "name": "N° 03 — L'Exception ★",
+      "description": "Mains & Pieds en semi-permanent · Dépose offerte",
+      "price": 85,
+      "duration": "90 min",
+      "note": "Dépose offerte"
+    }
+  ],
+  "categories": [
+    {
+      "id": "epilation",
+      "code": "I",
+      "name_fr": "I. ÉPILATION",
+      "name_en": "I. HAIR REMOVAL",
+      "description_fr": "Épilation douce et soignée à la cire tiède régulée.",
+      "subgroups": [
+        {
+          "name_fr": "Visage & Corps",
+          "services": [
+            { "name_fr": "Sourcils", "price_female": 8, "price_male": 12, "duration": "15 min" },
+            { "name_fr": "Lèvres", "price_female": 7, "price_male": null, "duration": "10 min" },
+            { "name_fr": "Narines", "price_female": 8, "price_male": 10, "duration": "10 min" },
+            { "name_fr": "Menton", "price_female": 7, "price_male": null, "duration": "10 min" },
+            { "name_fr": "Oreilles", "price_female": 8, "price_male": 10, "duration": "10 min" },
+            { "name_fr": "Visage complet", "price_female": 30, "price_male": null, "duration": "30 min" },
+            { "name_fr": "Cou", "price_female": 7, "price_male": null, "duration": "10 min" },
+            { "name_fr": "Aisselles", "price_female": 10, "price_male": 15, "duration": "15 min" },
+            { "name_fr": "Demi-bras", "price_female": 13, "price_male": 15, "duration": "20 min" },
+            { "name_fr": "Bras entiers", "price_female": 15, "price_male": 20, "duration": "30 min" },
+            { "name_fr": "Torse", "price_female": 20, "price_male": 25, "duration": "25 min" },
+            { "name_fr": "Ventre", "price_female": 10, "price_male": 12, "duration": "15 min" },
+            { "name_fr": "Dos", "price_female": 25, "price_male": 28, "duration": "30 min" }
+          ]
+        },
+        {
+          "name_fr": "Zone Maillot",
+          "services": [
+            { "name_fr": "Maillot Simple", "price": 15, "duration": "15 min" },
+            { "name_fr": "Maillot Échancré", "price": 20, "duration": "20 min" },
+            { "name_fr": "Maillot Intégral", "price": 30, "duration": "30 min" }
+          ]
+        },
+        {
+          "name_fr": "Jambes",
+          "services": [
+            { "name_fr": "Demi-Jambes", "price": 19, "duration": "20 min" },
+            { "name_fr": "Jambes Entières", "price": 28, "duration": "35 min" }
+          ]
+        },
+        {
+          "name_fr": "Forfaits Épilation",
+          "services": [
+            { "name_fr": "Demi-Jambes + Aisselles + Maillot Simple", "price": 35, "duration": "40 min" },
+            { "name_fr": "Demi-Jambes + Aisselles + Maillot Échancré", "price": 40, "duration": "45 min" },
+            { "name_fr": "Demi-Jambes + Aisselles + Maillot Intégral", "price": 48, "duration": "55 min" },
+            { "name_fr": "Jambes Entières + Aisselles + Maillot Simple", "price": 43, "duration": "50 min" },
+            { "name_fr": "Jambes Entières + Aisselles + Maillot Échancré", "price": 48, "duration": "55 min" },
+            { "name_fr": "Jambes Entières + Aisselles + Maillot Intégral", "price": 55, "duration": "65 min" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soins_relaxants",
+      "code": "II",
+      "name_fr": "II. SOINS RELAXANTS",
+      "name_en": "II. RELAXING TREATMENTS",
+      "description_fr": "Massages traditionnels et soins ciblés pour dénouer les tensions.",
+      "subgroups": [
+        {
+          "name_fr": "Massage Chinois",
+          "services": [
+            { "name_fr": "Massage Chinois — 30 min", "price": 30, "duration": "30 min" },
+            { "name_fr": "Massage Chinois — 60 min", "price": 50, "duration": "60 min" }
+          ]
+        },
+        {
+          "name_fr": "Soins Ciblés",
+          "services": [
+            { "name_fr": "Soins des Pieds — 30 min", "price": 25, "duration": "30 min" },
+            { "name_fr": "Épaules & Cou — 15 min", "price": 15, "duration": "15 min" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "extension_cils",
+      "code": "III",
+      "name_fr": "III. EXTENSION DES CILS",
+      "name_en": "III. EYELASH EXTENSIONS",
+      "description_fr": "Sublimez votre regard avec des poses de cils soyeux et légers.",
+      "subgroups": [
+        {
+          "name_fr": "Extensions & Entretien",
+          "services": [
+            { "name_fr": "Extension — Naturel", "price": 55, "duration": "60 min" },
+            { "name_fr": "Extension — Glamour", "price": 65, "duration": "75 min" },
+            { "name_fr": "Remplissage Naturel", "price": 35, "duration": "45 min" },
+            { "name_fr": "Remplissage Glamour", "price": 45, "duration": "50 min" },
+            { "name_fr": "Dépose des Faux Cils", "price": 20, "duration": "20 min" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "beaute_mains",
+      "code": "IV",
+      "name_fr": "IV. BEAUTÉ DES MAINS",
+      "name_en": "IV. HAND BEAUTY",
+      "description_fr": "Manucures soignées, poses de vernis et rituels spa réparateurs.",
+      "subgroups": [
+        {
+          "name_fr": "Pose de Vernis",
+          "services": [
+            { "name_fr": "Vernis Classique", "price": 10, "duration": "20 min" },
+            { "name_fr": "Vernis French", "price": 13, "duration": "25 min" },
+            { "name_fr": "Semi-Permanent", "price": 25, "duration": "35 min" }
+          ]
+        },
+        {
+          "name_fr": "Manucures",
+          "services": [
+            { "name_fr": "Manucure — sans couleur", "price": 15, "duration": "25 min" },
+            { "name_fr": "Manucure + Vernis Classique", "price": 18, "duration": "35 min" },
+            { "name_fr": "Manucure + Semi-Permanent", "price": 30, "duration": "45 min" }
+          ]
+        },
+        {
+          "name_fr": "Rituel SPA (avec Masque)",
+          "services": [
+            { "name_fr": "SPA — sans vernis", "price": 25, "duration": "35 min" },
+            { "name_fr": "SPA — Vernis Classique", "price": 35, "duration": "45 min" },
+            { "name_fr": "SPA — Semi-Permanent", "price": 45, "duration": "55 min" }
+          ]
+        },
+        {
+          "name_fr": "Dépose Semi-Permanent",
+          "services": [
+            { "name_fr": "Dépose — sans nouvelle pose", "price": 8, "duration": "15 min" },
+            { "name_fr": "Dépose — avec nouvelle pose", "price": 5, "duration": "10 min" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "beaute_pieds",
+      "code": "V",
+      "name_fr": "V. BEAUTÉ DES PIEDS",
+      "name_en": "V. FOOT BEAUTY",
+      "description_fr": "Pédicures professionnelles, callosités adoucies et spa délassant.",
+      "subgroups": [
+        {
+          "name_fr": "Coupe & Vernis",
+          "services": [
+            { "name_fr": "Coupe des Ongles — seule", "price": 10, "duration": "15 min" },
+            { "name_fr": "Coupe + Vernis Classique", "price": 12, "duration": "20 min" }
+          ]
+        },
+        {
+          "name_fr": "Beauté des Pieds",
+          "services": [
+            { "name_fr": "Beauté des Pieds — sans vernis", "price": 27, "duration": "35 min" },
+            { "name_fr": "Beauté des Pieds + Vernis Classique", "price": 35, "duration": "45 min" },
+            { "name_fr": "Beauté des Pieds + Semi-Permanent", "price": 45, "duration": "55 min" }
+          ]
+        },
+        {
+          "name_fr": "Rituel SPA (avec Masque)",
+          "services": [
+            { "name_fr": "SPA — sans vernis", "price": 40, "duration": "45 min" },
+            { "name_fr": "SPA — Vernis Classique", "price": 44, "duration": "55 min" },
+            { "name_fr": "SPA — Semi-Permanent", "price": 55, "duration": "65 min" }
+          ]
+        },
+        {
+          "name_fr": "Dépose Semi-Permanent",
+          "services": [
+            { "name_fr": "Dépose — sans nouvelle pose", "price": 10, "duration": "15 min" },
+            { "name_fr": "Dépose — avec nouvelle pose", "price": 5, "duration": "10 min" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faux_ongles",
+      "code": "VI",
+      "name_fr": "VI. POSE FAUX-ONGLES",
+      "name_en": "VI. FALSE NAILS",
+      "description_fr": "Résine, Gel UV et renforcements pour des ongles longs et parfaits.",
+      "subgroups": [
+        {
+          "name_fr": "Pose Résine",
+          "services": [
+            { "name_fr": "Résine — sans couleur", "price": 30, "duration": "45 min" },
+            { "name_fr": "Résine + Vernis Classique", "price": 35, "duration": "55 min" },
+            { "name_fr": "Résine + Semi-Permanent", "price": 45, "duration": "65 min" }
+          ]
+        },
+        {
+          "name_fr": "Pose Gel (Ongles UV)",
+          "services": [
+            { "name_fr": "Gel + Semi-Permanent", "price": 50, "duration": "60 min" },
+            { "name_fr": "Gel de Gainage + Semi-Permanent", "price": 65, "duration": "75 min" }
+          ]
+        },
+        {
+          "name_fr": "Remplissage (dépose offerte)",
+          "services": [
+            { "name_fr": "Résine + Vernis Classique", "price": 30, "duration": "45 min" },
+            { "name_fr": "Résine + Semi-Permanent", "price": 40, "duration": "55 min" },
+            { "name_fr": "Gel + Semi-Permanent", "price": 45, "duration": "55 min" },
+            { "name_fr": "Gel de Gainage + Semi-Permanent", "price": 60, "duration": "65 min" }
+          ]
+        },
+        {
+          "name_fr": "Finitions & Suppléments",
+          "services": [
+            { "name_fr": "Enlever les Faux-Ongles", "price": 15, "duration": "25 min" },
+            { "name_fr": "Dessin sur Ongle (par ongle)", "price": 1, "duration": "5 min" },
+            { "name_fr": "French Simple — supplément", "price": 5, "duration": "10 min" }
+          ]
+        }
+      ]
+    }
+  ]
+}

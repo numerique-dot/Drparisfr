@@ -1,0 +1,76 @@
+{
+  "entities": {
+    "patient": {
+      "title": "Patient Profile",
+      "description": "Information about the registered patient, including reward points and preferences.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "The unique user ID" },
+        "displayName": { "type": "string", "description": "The display name of the user" },
+        "email": { "type": "string", "format": "email", "description": "The email of the user" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Profile creation timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Profile update timestamp" }
+      },
+      "required": ["uid", "email"]
+    },
+    "note": {
+      "title": "Patient Note",
+      "description": "Private persistent notes and favorite treatment records logged by the patient.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "treatmentId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "title", "content", "createdAt"]
+    },
+    "activityLog": {
+      "title": "Activity Log",
+      "description": "Durable record of Google Workspace interactions, appointments synced, and generated cards.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "actionType": { "type": "string", "enum": ["calendar_sync", "drive_upload", "mail_sent", "slides_generation"] },
+        "description": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "actionType", "description", "timestamp"]
+    },
+    "review": {
+      "title": "Customer Review",
+      "description": "Public clients reviews and ratings of services.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "The unique review ID" },
+        "name": { "type": "string", "description": "Display name of the reviewer" },
+        "rating": { "type": "number", "description": "Star rating out of 5" },
+        "text": { "type": "string", "description": "Review content text" },
+        "service": { "type": "string", "description": "Name of the service reviewed" },
+        "date": { "type": "string", "description": "Formatted date string" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Timestamp of review" }
+      },
+      "required": ["id", "name", "rating", "text", "service", "date", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/reviews/{reviewId}": {
+      "schema": "review",
+      "description": "Public reviews submitted by clients about services."
+    },
+    "/patients/{patientId}": {
+      "schema": "patient",
+      "description": "User profile document owned by the client."
+    },
+    "/patients/{patientId}/notes/{noteId}": {
+      "schema": "note",
+      "description": "Sub-collection of customized personal treatment plans and notes."
+    },
+    "/patients/{patientId}/activity_logs/{logId}": {
+      "schema": "activityLog",
+      "description": "Sub-collection of patient actions such as Workspace calendar, drive, and mail operations."
+    }
+  }
+}
