@@ -529,13 +529,22 @@ const wordDictionary: Record<string, Record<string, string>> = {
   "Rituel 03 : L'Exception": { "en": "Ritual 03 : The Imperial Treatment", "zh": "套餐 03 : 至臻修护（手部+足部 半永久 卸除重做）" },
 
   // New Additions (Options & Nouveautés)
+  "✦ Nouveautés « Plus »": { "en": "✦ New « Plus » Add-ons", "zh": "✦ 甄选新品加项 « Plus »" },
+  "Finitions & Nail Art": { "en": "Nail Art & Trend Finishes", "zh": "指甲艺术与潮流款式" },
+  "Soins Relaxants & Exfoliation": { "en": "Relaxing Care & Exfoliation", "zh": "舒缓护理与深层去角质" },
   "French Simple": { "en": "Chic Simple French Line Design", "zh": "简易法式" },
   "Miroir": { "en": "CatWalk Metallic Chrome Chrome Finishes", "zh": "魔镜粉效果" },
+  "Miroir (Mirror Effect)": { "en": "Mirror Effect (Chrome Finish)", "zh": "魔镜粉效果" },
+  "Miroir（Mirror Effect）": { "en": "Mirror Effect (Chrome Finish)", "zh": "魔镜粉效果" },
   "Gel œil de chat": { "en": "Deep Cosmic CatEye Paint effect", "zh": "猫眼效果胶" },
+  "Gel œil de chat (Cat Eye Gel)": { "en": "Cat Eye Gel Magnetic Polish", "zh": "猫眼效果胶" },
+  "Gel œil de chat（Cat Eye Gel）": { "en": "Cat Eye Gel Magnetic Polish", "zh": "猫眼效果胶" },
   "Baby boomer": { "en": "Soft BabyBoomer Airbrush Gradation", "zh": "渐变渐染效果" },
   "Soin relaxant pieds — 10 min": { "en": "Express Foot Relaxing Massage (10 min)", "zh": "足部放松护理 — 10分钟" },
   "Soin relaxant pieds — 20 min": { "en": "Pro-Reflex Foot Meridian Massage (20 min)", "zh": "足部放松护理 — 20分钟" },
-  "Gommage": { "en": "Organic Brown Sugar Polish Exfoliation", "zh": "去角质磨砂" }
+  "Gommage": { "en": "Organic Brown Sugar Polish Exfoliation", "zh": "去角质磨砂" },
+  "Gommage (Scrub)": { "en": "Exfoliating Foot & Body Scrub", "zh": "去角质磨砂" },
+  "Gommage（Scrub）": { "en": "Exfoliating Foot & Body Scrub", "zh": "去角质磨砂" }
 };
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {

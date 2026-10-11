@@ -5,6 +5,35 @@ const REPLACED_IMAGES_KEY = 'dr_replaced_images';
 // Key used for admin login state
 const ADMIN_LOGGED_IN_KEY = 'dr_admin_logged_in';
 
+// SHA-256 hash of admin password
+export const ADMIN_PASSWORD_HASH = 'fd76d69ca50967a2ec5698cc69945e19f85c00f3153bab250821b987d45d423d';
+
+/**
+ * Compute SHA-256 hash using the Web Crypto API
+ */
+export async function computeSha256(input: string): Promise<string> {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(input);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+/**
+ * Verify admin password using SHA-256 hash comparison
+ */
+export async function verifyAdminPassword(password: string): Promise<boolean> {
+  if (!password) return false;
+  try {
+    const inputHash = await computeSha256(password);
+    return inputHash === ADMIN_PASSWORD_HASH;
+  } catch (err) {
+    console.error('Failed to verify admin password:', err);
+    return false;
+  }
+}
+
+
 // Get all replaced images mapped by their default path
 export function getReplacedImagesMap(): Record<string, string> {
   try {

@@ -46,7 +46,7 @@ const Testimonials: React.FC = () => {
               id: 'def-2', 
               name: "Jean-Marc L.", 
               rating: 5, 
-              text: "Modelage relaxant d'une grande douceur et d'une précision remarquable. Aurélie Laurent est d'une grande écoute. Un pur moment de décompression !",
+              text: "Modelage relaxant d'une grande douceur et d'une précision remarquable. La praticienne est d'une grande écoute. Un pur moment de décompression !",
               service: "Soin Relaxant (60 min)",
               date: "08 Juin 2026"
             },
@@ -132,7 +132,7 @@ const Testimonials: React.FC = () => {
               id: 'def-2', 
               name: "Jean-Marc L.", 
               rating: 5, 
-              text: "Rituels sculptants et d'infusion d'une grande subtilité. Aurélie Laurent est d'une grande écoute et d'une précision remarquable. Résultat très naturel.",
+              text: "Rituels sculptants et d'infusion d'une grande subtilité. La praticienne est d'une grande écoute et d'une précision remarquable. Résultat très naturel.",
               service: "Soin Silhouette & Galbe",
               date: "08 Juin 2026"
             },

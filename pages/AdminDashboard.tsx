@@ -53,6 +53,7 @@ import { RecentRealization, ServiceItem } from '../types';
 import { 
   useAdminAuth, 
   setAdminLoggedIn, 
+  verifyAdminPassword,
   getResolvedImageUrl, 
   useServices,
   PRESET_SERVICE_IMAGES,
@@ -845,20 +846,45 @@ export const AdminDashboard: React.FC = () => {
   );
 
   if (!isAdmin) {
-    const handlePasscodeSubmit = (e: React.FormEvent) => {
+    const handlePasscodeSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
       setLoginError('');
       const clean = passcode.trim();
-      if (!clean || clean === '8888' || clean === 'admin' || clean === 'admin360' || clean === '123456') {
-        setAdminLoggedIn(true);
-      } else {
+      if (!clean) {
         setLoginError(
           language === 'zh'
-            ? "密码不正确。请使用 8888 或 admin，或直接点击上方一键免密登入。"
+            ? "请输入管理员密码。"
             : language === 'en'
-            ? "Incorrect passcode. Please use 8888 or admin, or click Quick Demo Login."
-            : "Passcode incorrect. Veuillez réessayer ou utiliser le code 8888 / admin."
+            ? "Please enter the admin password."
+            : "Veuillez saisir le mot de passe administrateur."
         );
+        return;
+      }
+
+      setIsLoggingIn(true);
+      try {
+        const isValid = await verifyAdminPassword(clean);
+        if (isValid) {
+          setAdminLoggedIn(true);
+        } else {
+          setLoginError(
+            language === 'zh'
+              ? "密码错误，请重新输入。"
+              : language === 'en'
+              ? "Incorrect password. Please try again."
+              : "Mot de passe incorrect. Veuillez réessayer."
+          );
+        }
+      } catch (err) {
+        setLoginError(
+          language === 'zh'
+            ? "验证出错，请重试。"
+            : language === 'en'
+            ? "Verification error, please try again."
+            : "Erreur de vérification, veuillez réessayer."
+        );
+      } finally {
+        setIsLoggingIn(false);
       }
     };
 
@@ -900,46 +926,22 @@ export const AdminDashboard: React.FC = () => {
             </p>
           </div>
 
-          {/* Quick 1-click login button */}
-          <button
-            type="button"
-            onClick={() => setAdminLoggedIn(true)}
-            className="w-full py-3.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-2xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition transform active:scale-95 cursor-pointer"
-          >
-            <Sparkles className="w-4 h-4" />
-            {language === 'zh' ? '⚡ 商家一键免密快速登入 (Demo)' : language === 'en' ? '⚡ One-Click Instant Access (Demo)' : '⚡ Accès Rapide Démo (Sans mot de passe)'}
-          </button>
-
-          <div className="relative flex py-1 items-center">
-            <div className="flex-grow border-t border-slate-800"></div>
-            <span className="flex-shrink mx-4 text-[9px] text-slate-500 uppercase font-black tracking-wider">
-              {language === 'zh' ? '或使用密码登录' : language === 'en' ? 'Or login with password' : 'Ou avec mot de passe'}
-            </span>
-            <div className="flex-grow border-t border-slate-800"></div>
-          </div>
-
           <form onSubmit={handlePasscodeSubmit} className="space-y-4">
             <div className="space-y-1.5 text-left">
               <label className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">
-                {language === 'zh' ? '管理员密码' : 'Passcode Administrateur'}
+                {language === 'zh' ? '管理员密码' : 'Mot de Passe Administrateur'}
               </label>
               <div className="relative">
                 <input
                   type="password"
                   value={passcode}
                   onChange={(e) => setPasscode(e.target.value)}
-                  placeholder={language === 'zh' ? '默认密码 8888 或 admin...' : "Saisissez votre code d'accès..."}
+                  placeholder={language === 'zh' ? '请输入管理员密码...' : language === 'en' ? 'Enter admin password...' : "Saisissez le mot de passe..."}
                   className="w-full bg-slate-950 border border-slate-850 rounded-2xl py-3.5 pl-11 pr-4 text-xs text-white focus:outline-none focus:ring-1 focus:ring-primary outline-none"
+                  autoComplete="current-password"
                 />
                 <KeyRound className="w-4 h-4 text-slate-500 absolute left-4 top-3.5" />
               </div>
-              <p className="text-[9px] text-slate-400">
-                {language === 'zh' ? (
-                  <>预设密码：<code className="bg-slate-950 px-1 py-0.5 rounded font-mono text-purple-300">8888</code> 或 <code className="bg-slate-950 px-1 py-0.5 rounded font-mono text-purple-300">admin</code></>
-                ) : (
-                  <>(Astuce : Utilisez le code <code className="bg-slate-950 px-1 py-0.5 rounded font-mono text-purple-300">8888</code> ou <code className="bg-slate-950 px-1 py-0.5 rounded font-mono text-purple-300">admin</code>)</>
-                )}
-              </p>
             </div>
 
             {loginError && (
@@ -950,13 +952,21 @@ export const AdminDashboard: React.FC = () => {
 
             <button
               type="submit"
-              className="w-full py-3.5 bg-gradient-to-r from-primary to-accent text-white rounded-2xl text-xs font-black uppercase tracking-widest hover:opacity-90 transition-all shadow-lg shadow-purple-500/15 transform active:scale-95 cursor-pointer"
+              disabled={isLoggingIn}
+              className="w-full py-3.5 bg-gradient-to-r from-primary to-accent text-white rounded-2xl text-xs font-black uppercase tracking-widest hover:opacity-90 transition-all shadow-lg shadow-purple-500/15 transform active:scale-95 cursor-pointer disabled:opacity-50 flex items-center justify-center gap-2"
             >
-              {language === 'zh' ? '登入控制台' : 'Se Connecter'}
+              {isLoggingIn ? (
+                <>
+                  <RefreshCw className="w-4 h-4 animate-spin" />
+                  <span>{language === 'zh' ? '正在验证...' : language === 'en' ? 'Verifying...' : 'Vérification...'}</span>
+                </>
+              ) : (
+                <span>{language === 'zh' ? '登入控制台' : language === 'en' ? 'Sign In' : 'Se Connecter'}</span>
+              )}
             </button>
           </form>
 
-          <div className="pt-2 border-t border-slate-850 flex items-center justify-between text-xs text-slate-400">
+          <div className="pt-3 border-t border-slate-850 flex items-center justify-between text-xs text-slate-400">
             <Link
               to="/"
               className="inline-flex items-center gap-1.5 hover:text-white transition"
@@ -968,15 +978,16 @@ export const AdminDashboard: React.FC = () => {
               type="button"
               disabled={isLoggingIn}
               onClick={handleGoogleLogin}
-              className="hover:text-purple-300 transition flex items-center gap-1 text-[11px]"
+              className="hover:text-purple-300 transition flex items-center gap-1.5 text-xs text-slate-300 bg-slate-950/80 hover:bg-slate-850 border border-slate-800 px-3 py-1.5 rounded-xl cursor-pointer disabled:opacity-50"
+              title="Google Workspace"
             >
-              <svg className="w-3 h-3 shrink-0" viewBox="0 0 48 48">
+              <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 48 48">
                 <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
                 <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
                 <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
                 <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
               </svg>
-              <span>Google</span>
+              <span>{language === 'zh' ? 'Google 备用登录' : language === 'en' ? 'Google Backup' : 'Google (Secours)'}</span>
             </button>
           </div>
         </div>

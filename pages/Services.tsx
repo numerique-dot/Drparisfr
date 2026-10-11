@@ -28,7 +28,8 @@ const categoryIcons: Record<string, any> = {
   extension_cils: Eye,
   beaute_mains: Droplets,
   beaute_pieds: Heart,
-  faux_ongles: Smile
+  faux_ongles: Smile,
+  nouveautes_plus: Sparkles
 };
 
 const Services: React.FC = () => {
@@ -85,27 +86,27 @@ const Services: React.FC = () => {
   }, [signatureTreatment, activeTab, searchQuery]);
 
   return (
-    <div className="bg-slate-50 min-h-screen py-12 md:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-slate-50 min-h-screen py-8 sm:py-12 md:py-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 animate-slide-up">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-bold tracking-widest text-primary bg-purple-100/70 rounded-full uppercase mb-3 border border-purple-200">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 animate-slide-up px-2">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[11px] sm:text-xs font-bold tracking-widest text-primary bg-purple-100/70 rounded-full uppercase mb-2 sm:mb-3 border border-purple-200">
             <Sparkles className="w-3.5 h-3.5 text-primary" />
             Institut D.R. Santé & Beauté
           </span>
-          <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-3 sm:mb-4">
             Tarifs & Services
           </h1>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light mb-6">
-            Découvrez notre offre complète de soins et de prestations. Chaque service est réalisé avec précision et attention par nos expertes. Pour toute question ou personnalisation, n'hésitez pas à nous contacter via WhatsApp ou au <a href={`tel:${COMPANY_INFO.phone.replace(/ /g, '')}`} className="font-bold text-primary hover:underline">{COMPANY_INFO.phone}</a>.
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed font-light mb-5 sm:mb-6">
+            Découvrez notre offre complète de soins et de prestations. Chaque service est réalisé avec précision et attention par nos expertes. Pour toute question, contactez-nous via WhatsApp ou au <a href={`tel:${COMPANY_INFO.phone.replace(/ /g, '')}`} className="font-bold text-primary hover:underline">{COMPANY_INFO.phone}</a>.
           </p>
 
           {/* Direct CTA Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 max-w-sm sm:max-w-none mx-auto">
             <Link
               to="/reservation"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white text-sm font-bold rounded-full hover:bg-accent transition shadow-md hover:shadow-purple-500/25 transform hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-primary text-white text-xs sm:text-sm font-bold rounded-full hover:bg-accent transition shadow-md hover:shadow-purple-500/25 active:scale-95 text-center"
             >
               <Calendar className="w-4 h-4" />
               Prendre Rendez-vous
@@ -114,7 +115,7 @@ const Services: React.FC = () => {
               href={`https://wa.me/33${COMPANY_INFO.phone.replace(/\s+/g, '').slice(1)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white text-sm font-bold rounded-full hover:bg-emerald-700 transition shadow-md hover:shadow-emerald-600/25 transform hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-emerald-600 text-white text-xs sm:text-sm font-bold rounded-full hover:bg-emerald-700 transition shadow-md hover:shadow-emerald-600/25 active:scale-95 text-center"
             >
               <Phone className="w-4 h-4" />
               Conseil WhatsApp
@@ -124,47 +125,47 @@ const Services: React.FC = () => {
 
         {/* ✦ NOTRE SIGNATURE HIGHLIGHT SECTION */}
         {hasSignatureMatch && (
-          <div className="mb-12 animate-fade-in">
-            <div className="relative overflow-hidden bg-gradient-to-r from-purple-950 via-slate-900 to-purple-950 text-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl border border-purple-500/30">
+          <div className="mb-8 sm:mb-12 animate-fade-in">
+            <div className="relative overflow-hidden bg-gradient-to-r from-purple-950 via-slate-900 to-purple-950 text-white rounded-3xl p-5 sm:p-8 md:p-10 shadow-xl border border-purple-500/30">
               <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
               
               <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-                <div className="max-w-2xl space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="px-3 py-1 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-xs uppercase tracking-widest rounded-full shadow-sm">
+                <div className="max-w-2xl space-y-2 sm:space-y-3">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="px-3 py-1 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-[10px] sm:text-xs uppercase tracking-widest rounded-full shadow-sm">
                       ✦ NOTRE SIGNATURE
                     </span>
-                    <span className="inline-flex items-center gap-1 text-xs text-purple-200 font-bold bg-white/10 px-2.5 py-1 rounded-full backdrop-blur-sm">
+                    <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs text-purple-200 font-bold bg-white/10 px-2.5 py-1 rounded-full backdrop-blur-sm">
                       <Clock className="w-3.5 h-3.5 text-accent" />
                       {signatureTreatment.duration}
                     </span>
                   </div>
                   
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-snug">
                     {signatureTreatment.name_fr}
                   </h2>
                   
-                  <p className="text-purple-200/90 text-sm md:text-base font-light italic leading-relaxed">
+                  <p className="text-purple-200/90 text-xs sm:text-sm md:text-base font-light italic leading-relaxed">
                     « {signatureTreatment.description_fr} »
                   </p>
                   
-                  <div className="flex items-center gap-4 text-xs text-purple-300 font-medium pt-2">
-                    <span className="flex items-center gap-1"><Check className="w-4 h-4 text-emerald-400" /> Éclat immédiat</span>
-                    <span className="flex items-center gap-1"><Check className="w-4 h-4 text-emerald-400" /> Nettoyage profond</span>
-                    <span className="flex items-center gap-1"><Check className="w-4 h-4 text-emerald-400" /> Détente totale</span>
+                  <div className="flex flex-wrap items-center gap-3 text-xs text-purple-300 font-medium pt-1">
+                    <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-emerald-400" /> Éclat immédiat</span>
+                    <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-emerald-400" /> Nettoyage profond</span>
+                    <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-emerald-400" /> Détente totale</span>
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end justify-between gap-4 shrink-0 bg-white/5 lg:bg-transparent p-4 lg:p-0 rounded-2xl border border-white/10 lg:border-0">
+                <div className="flex flex-row lg:flex-col items-center lg:items-end justify-between gap-4 shrink-0 bg-white/5 lg:bg-transparent p-3.5 sm:p-4 lg:p-0 rounded-2xl border border-white/10 lg:border-0">
                   <div className="text-left lg:text-right">
-                    <span className="text-xs text-purple-300 uppercase tracking-widest block font-bold">Tarif Exclusif</span>
-                    <span className="text-4xl font-black text-amber-300">{signatureTreatment.price} €</span>
+                    <span className="text-[10px] sm:text-xs text-purple-300 uppercase tracking-widest block font-bold">Tarif Exclusif</span>
+                    <span className="text-2xl sm:text-4xl font-black text-amber-300">{signatureTreatment.price} €</span>
                   </div>
                   <Link
                     to={`/reservation?service=${encodeURIComponent(signatureTreatment.name_fr)}`}
-                    className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-primary to-accent text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-lg hover:shadow-purple-500/40 hover:opacity-95 transition transform hover:-translate-y-0.5 text-center"
+                    className="px-5 py-3 bg-gradient-to-r from-primary to-accent text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-lg hover:shadow-purple-500/40 active:scale-95 transition text-center"
                   >
-                    Réserver ce Soin
+                    Réserver
                   </Link>
                 </div>
               </div>
@@ -339,14 +340,14 @@ const Services: React.FC = () => {
                 </div>
 
                 {/* Subgroups Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
                   {cat.subgroups.map((sub, sIdx) => (
                     <div 
                       key={sIdx}
-                      className="bg-slate-50/70 rounded-2xl p-5 border border-purple-50/70 flex flex-col justify-between"
+                      className="bg-slate-50/80 rounded-2xl p-4 sm:p-5 border border-purple-50 flex flex-col justify-between"
                     >
                       <div>
-                        <h3 className="text-sm font-black uppercase tracking-wider text-purple-900 mb-4 pb-2 border-b border-purple-200/50 flex items-center justify-between">
+                        <h3 className="text-xs sm:text-sm font-black uppercase tracking-wider text-purple-900 mb-3 sm:mb-4 pb-2 border-b border-purple-200/50 flex items-center justify-between">
                           <span>{sub.name_fr}</span>
                           <span className="text-[10px] text-gray-400 font-mono font-normal">
                             {sub.services.length} {sub.services.length > 1 ? 'soins' : 'soin'}
@@ -360,11 +361,11 @@ const Services: React.FC = () => {
                             return (
                               <div 
                                 key={idx}
-                                className="py-3 flex items-center justify-between gap-4 group hover:bg-white/80 px-2 rounded-xl transition-colors"
+                                className="py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-4 group hover:bg-white/80 px-1 sm:px-2 rounded-xl transition-colors"
                               >
-                                <div className="min-w-0 flex-1">
-                                  <div className="flex items-center gap-2">
-                                    <span className="text-xs font-bold text-gray-800 group-hover:text-primary transition-colors truncate">
+                                <div className="min-w-0 flex-1 pr-1">
+                                  <div className="flex flex-wrap items-baseline gap-1 sm:gap-2">
+                                    <span className="text-xs font-bold text-gray-800 group-hover:text-primary transition-colors leading-snug">
                                       {service.name_fr}
                                     </span>
                                     {service.duration && (
@@ -375,29 +376,29 @@ const Services: React.FC = () => {
                                   </div>
                                 </div>
 
-                                <div className="flex items-center gap-3 shrink-0">
+                                <div className="flex items-center gap-2 sm:gap-3 shrink-0">
                                   {isGendered ? (
                                     <div className="text-right">
-                                      <div className="text-xs font-extrabold text-gray-900">
-                                        Femme : <span className="text-primary">{service.price_female} €</span>
+                                      <div className="text-[11px] sm:text-xs font-extrabold text-gray-900">
+                                        F : <span className="text-primary">{service.price_female} €</span>
                                       </div>
                                       {service.price_male ? (
-                                        <div className="text-[11px] font-bold text-gray-600">
-                                          Homme : <span>{service.price_male} €</span>
+                                        <div className="text-[10px] sm:text-[11px] font-bold text-gray-600">
+                                          H : <span>{service.price_male} €</span>
                                         </div>
                                       ) : (
-                                        <div className="text-[10px] text-gray-400 italic">Homme : —</div>
+                                        <div className="text-[9px] text-gray-400 italic">H : —</div>
                                       )}
                                     </div>
                                   ) : (
-                                    <span className="text-sm font-black text-gray-900">
+                                    <span className="text-xs sm:text-sm font-black text-gray-900">
                                       {service.price} €
                                     </span>
                                   )}
 
                                   <Link
                                     to={`/reservation?service=${encodeURIComponent(service.name_fr)}`}
-                                    className="px-3 py-1.5 bg-purple-100/80 hover:bg-primary hover:text-white text-primary text-[11px] font-bold rounded-lg transition-colors shadow-xs"
+                                    className="px-2.5 py-1.5 sm:px-3 sm:py-1.5 bg-purple-100/80 hover:bg-primary hover:text-white text-primary text-[10px] sm:text-[11px] font-bold rounded-lg transition-colors shadow-xs active:scale-95 shrink-0"
                                     title={`Réserver ${service.name_fr}`}
                                   >
                                     RDV

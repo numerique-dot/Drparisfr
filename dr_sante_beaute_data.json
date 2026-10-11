@@ -16,10 +16,10 @@
   "signature_treatment": {
     "name_fr": "Soin du Visage",
     "name_en": "Facial Care",
-    "duration": "60 min",
+    "duration": "40 min",
     "price": 49,
-    "description_fr": "Une heure d'évasion. Un protocole exclusif qui réveille l'éclat naturel de votre peau.",
-    "description_en": "One hour of escape. An exclusive protocol that awakens your skin's natural radiance."
+    "description_fr": "40 minutes d'évasion. Un protocole exclusif qui réveille l'éclat naturel de votre peau.",
+    "description_en": "40 minutes of escape. An exclusive protocol that awakens your skin's natural radiance."
   },
   "signature_rituals": [
     {
@@ -134,8 +134,8 @@
           "services": [
             { "name_fr": "Extension — Naturel", "price": 55, "duration": "60 min" },
             { "name_fr": "Extension — Glamour", "price": 65, "duration": "75 min" },
-            { "name_fr": "Remplissage Naturel", "price": 35, "duration": "45 min" },
-            { "name_fr": "Remplissage Glamour", "price": 45, "duration": "50 min" },
+            { "name_fr": "Remplissage à 3 semaines", "price": 35, "duration": "45 min" },
+            { "name_fr": "Remplissage à 4 semaines", "price": 45, "duration": "50 min" },
             { "name_fr": "Dépose des Faux Cils", "price": 20, "duration": "20 min" }
           ]
         }
@@ -257,6 +257,32 @@
             { "name_fr": "Enlever les Faux-Ongles", "price": 15, "duration": "25 min" },
             { "name_fr": "Dessin sur Ongle (par ongle)", "price": 1, "duration": "5 min" },
             { "name_fr": "French Simple — supplément", "price": 5, "duration": "10 min" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nouveautes_plus",
+      "code": "✦",
+      "name_fr": "✦ Nouveautés « Plus »",
+      "name_en": "✦ New « Plus » Add-ons",
+      "description_fr": "Des finitions d'exception, effets tendances et soins relaxants express pour sublimer votre beauté.",
+      "subgroups": [
+        {
+          "name_fr": "Finitions & Nail Art",
+          "services": [
+            { "name_fr": "French Simple", "price": 5, "duration": "10 min" },
+            { "name_fr": "Miroir (Mirror Effect)", "price": 10, "duration": "10 min" },
+            { "name_fr": "Gel œil de chat (Cat Eye Gel)", "price": 10, "duration": "10 min" },
+            { "name_fr": "Baby boomer", "price": 10, "duration": "15 min" }
+          ]
+        },
+        {
+          "name_fr": "Soins Relaxants & Exfoliation",
+          "services": [
+            { "name_fr": "Soin relaxant pieds — 10 min", "price": 10, "duration": "10 min" },
+            { "name_fr": "Soin relaxant pieds — 20 min", "price": 18, "duration": "20 min" },
+            { "name_fr": "Gommage (Scrub)", "price": 5, "duration": "10 min" }
           ]
         }
       ]

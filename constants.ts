@@ -44,44 +44,7 @@ export interface Practitioner {
   experience: string;
 }
 
-export const PRACTITIONERS: Practitioner[] = [
-  {
-    id: 'dr-laurent',
-    name: 'Aurélie Laurent',
-    role: 'Chef Esthéticienne & Facialiste',
-    specialty: 'Spécialiste Soins Visage & Massages Relaxants',
-    image: 'https://images.unsplash.com/photo-1594824813573-246434e3b96f?auto=format&fit=crop&q=80&w=600&h=600',
-    bio: 'Avec plus de 12 ans d\'expertise d\'esthétique d\'exception dans les plus grands spas parisiens. Passionnée par le bien-être holistique, elle excelle dans le Soin Signature d\'éclat et les modelages relaxants chinois.',
-    experience: '12 ans d\'expertise'
-  },
-  {
-    id: 'dr-mercier',
-    name: 'Thomas Mercier',
-    role: 'Styliste Ongulaire Senior',
-    specialty: 'Expert Pose Résine, Gel & Décors Nail Art',
-    image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=600&h=600',
-    bio: 'Spécialiste reconnu de la pose de faux-ongles et du Nail Art créatif. Précis et passionné, il saura sublimer vos mains grâce à la pose de gel, de résine ou de vernis semi-permanent ultra-durable.',
-    experience: '9 ans d\'expertise'
-  },
-  {
-    id: 'melissa-v',
-    name: 'Mélissa Valois',
-    role: 'Experte Spa Mains & Pieds',
-    specialty: 'Beauté des Pieds & Rituels Spa Détox',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600&h=600',
-    bio: 'Mélissa maîtrise à la perfection les protocoles de beauté des pieds et de réflexologie douce. Très méticuleuse, elle réalise des gommages et masques réparateurs haut de gamme pour une détente sensorielle absolue.',
-    experience: '7 ans d\'expertise'
-  },
-  {
-    id: 'marine-d',
-    name: 'Marine Dubois',
-    role: 'Styliste du Regard & Cils',
-    specialty: 'Extensions de Cils Naturel & Glamour',
-    image: 'https://images.unsplash.com/photo-1594744803329-e58b31de215f?auto=format&fit=crop&q=80&w=600&h=600',
-    bio: 'Formée aux techniques de pointe de rehaussement et d\'extensions de cils (méthode cil à cil et volume russe). Marine sculpte et harmonise votre regard avec une douceur et une précision inégalée.',
-    experience: '5 ans d\'expertise'
-  }
-];
+export const PRACTITIONERS: Practitioner[] = [];
 
 // Reconstruct SERVICES dynamically from rawData (covering the 6 official categories + Signatures + Rituals)
 const parseServices = (): ServiceItem[] => {
@@ -141,6 +104,9 @@ const parseServices = (): ServiceItem[] => {
       } else if (cat.id === 'faux_ongles') {
         catIcon = Smile;
         catImage = "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=800&auto=format&fit=crop";
+      } else if (cat.id === 'nouveautes_plus') {
+        catIcon = Sparkles;
+        catImage = "https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=800&auto=format&fit=crop";
       }
 
       if (cat.subgroups) {
@@ -252,8 +218,8 @@ export const BEFORE_AFTER_GALLERY: BeforeAfterItem[] = [
 
 // Reviews Data
 export const REVIEWS: Review[] = [
-  { id: 1, name: "Sophie M.", rating: 5, text: "Le Soin Signature du visage chez D.R. Santé & Beauté est tout simplement magique. Ma peau est lumineuse, les traits sont détendus, et l'accueil d'Aurélie est exceptionnel." },
-  { id: 2, name: "Jean-Marc L.", rating: 5, text: "Beauté des pieds et massage d'une grande douceur et d'une précision remarquable. Mélissa Valois est d'une grande écoute. Un pur moment de décompression !" },
+  { id: 1, name: "Sophie M.", rating: 5, text: "Le Soin Signature du visage chez D.R. Santé & Beauté est tout simplement magique. Ma peau est lumineuse, les traits sont détendus, et l'accueil est exceptionnel." },
+  { id: 2, name: "Jean-Marc L.", rating: 5, text: "Beauté des pieds et massage d'une grande douceur et d'une précision remarquable. L'équipe est d'une grande écoute. Un pur moment de décompression !" },
   { id: 3, name: "Julie T.", rating: 5, text: "Pose d'extensions de cils glamour très naturelles et de grande qualité. Tenue impeccable après 3 semaines. Équipe chaleureuse et très professionnelle." }
 ];
 
@@ -268,7 +234,7 @@ export const RECENT_REALIZATIONS: RecentRealization[] = [
     timestamp: 'Il y a 2 heures',
     likes: 47,
     treatment: 'Manucure avec Semi-Permanent',
-    physician: 'Thomas Mercier'
+    physician: 'Équipe D.R'
   },
   {
     id: 'rec-facial',
@@ -279,7 +245,7 @@ export const RECENT_REALIZATIONS: RecentRealization[] = [
     timestamp: 'Hier, 16h15',
     likes: 34,
     treatment: '⭐ SOIN SIGNATURE — Soin du Visage',
-    physician: 'Aurélie Laurent'
+    physician: 'Équipe D.R'
   },
   {
     id: 'rec-lashes',
@@ -290,7 +256,7 @@ export const RECENT_REALIZATIONS: RecentRealization[] = [
     timestamp: 'Il y a 1 jour',
     likes: 41,
     treatment: 'Extension de Cils Glamour',
-    physician: 'Marine Dubois'
+    physician: 'Équipe D.R'
   },
   {
     id: 'rec-relax',
@@ -301,7 +267,7 @@ export const RECENT_REALIZATIONS: RecentRealization[] = [
     timestamp: 'Il y a 2 jours',
     likes: 28,
     treatment: 'Soins Ciblés - Pieds (30 min)',
-    physician: 'Mélissa Valois'
+    physician: 'Équipe D.R'
   },
   {
     id: 'rec-nails-art',
@@ -312,7 +278,7 @@ export const RECENT_REALIZATIONS: RecentRealization[] = [
     timestamp: 'Il y a 3 jours',
     likes: 54,
     treatment: 'Résine + Semi-Permanent',
-    physician: 'Thomas Mercier'
+    physician: 'Équipe D.R'
   },
   {
     id: 'rec-pedicure',
@@ -323,7 +289,7 @@ export const RECENT_REALIZATIONS: RecentRealization[] = [
     timestamp: 'Il y a 4 jours',
     likes: 39,
     treatment: 'SPA Semi-Permanent avec Masque',
-    physician: 'Mélissa Valois'
+    physician: 'Équipe D.R'
   }
 ];
 

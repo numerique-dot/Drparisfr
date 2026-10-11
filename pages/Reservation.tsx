@@ -99,7 +99,9 @@ const Reservation: React.FC = () => {
   const [regSuccessMsg, setRegSuccessMsg] = useState('');
 
   // Booking Wizard Steps: 1 = Service, 2 = Practitioner, 3 = Schedule, 4 = Info & Consent
-  const [currentStep, setCurrentStep] = useState<number>(initialService ? (initialPractitioner !== 'any' ? 3 : 2) : 1);
+  const [currentStep, setCurrentStep] = useState<number>(
+    initialService ? (initialPractitioner !== 'any' || PRACTITIONERS.length === 0 ? 3 : 2) : 1
+  );
   const [savedBookings, setSavedBookings] = useState<SavedBooking[]>([]);
   const [claimedCoupons, setClaimedCoupons] = useState<ClaimedCoupon[]>([]);
   const [newlyClaimedReward, setNewlyClaimedReward] = useState<ClaimedCoupon | null>(null);
@@ -191,15 +193,26 @@ const Reservation: React.FC = () => {
     }
 
     if (preSelectedServiceName || preSelectedPractitionerId) {
-      if (serviceMatched && practitionerMatched) {
-        setCurrentStep(3); // Go straight to scheduling
-      } else if (serviceMatched) {
-        setCurrentStep(2); // Go to choosing a practitioner
+      if (serviceMatched) {
+        if (PRACTITIONERS.length === 0 || practitionerMatched) {
+          if (PRACTITIONERS.length === 0) setSelectedPractitioner('any');
+          setCurrentStep(3); // Go straight to scheduling
+        } else {
+          setCurrentStep(2); // Go to choosing a practitioner
+        }
       } else if (practitionerMatched) {
         setCurrentStep(1); // Choose a service first (required)
       }
     }
   }, [preSelectedServiceName, preSelectedPractitionerId, catalogServices]);
+
+  // Guard: if currentStep is 2 but PRACTITIONERS is empty, advance directly to schedule
+  useEffect(() => {
+    if (currentStep === 2 && PRACTITIONERS.length === 0) {
+      setSelectedPractitioner('any');
+      setCurrentStep(3);
+    }
+  }, [currentStep]);
 
   const filteredBookingServices = React.useMemo(() => {
     let result = catalogServices;
@@ -430,24 +443,14 @@ const Reservation: React.FC = () => {
   };
 
   // Loyalty Program Core Calculations & Mocks
-  const MOCK_PAST_VISITS = [
-    {
-      id: 'HST-1024',
-      service: 'Diagnostic Peau Visage & Éclat',
-      practitioner: 'Thomas Mercier',
-      date: '02 Juin 2026',
-      points: 100,
-      status: 'Terminé'
-    },
-    {
-      id: 'HST-0842',
-      service: 'Hydrafacial Élite Haute Performance',
-      practitioner: 'Mélissa Valois',
-      date: '15 Mai 2026',
-      points: 100,
-      status: 'Terminé'
-    }
-  ];
+  const MOCK_PAST_VISITS: {
+    id: string;
+    service: string;
+    practitioner: string;
+    date: string;
+    points: number;
+    status: string;
+  }[] = [];
 
   const LOYALTY_REWARDS = [
     {
@@ -485,7 +488,7 @@ const Reservation: React.FC = () => {
   ];
 
   const welcomePoints = 150;
-  const pastPointsSum = 200; // 100 + 100 from MOCK_PAST_VISITS
+  const pastPointsSum = 0;
   const futurePointsSum = savedBookings.length * 100;
   const totalEarnedPoints = welcomePoints + pastPointsSum + futurePointsSum;
   const spentPoints = claimedCoupons.reduce((sum, coupon) => sum + coupon.pointsSpent, 0);
@@ -537,50 +540,50 @@ const Reservation: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-neutral py-16">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-neutral py-8 sm:py-12 md:py-16">
+      <div className="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Title */}
-        <div className="text-center mb-10">
-          <span className="text-primary font-extrabold tracking-widest text-xs uppercase bg-purple-100/80 px-4 py-1.5 rounded-full border border-purple-200">
+        <div className="text-center mb-6 sm:mb-10 px-2">
+          <span className="text-primary font-extrabold tracking-widest text-[11px] sm:text-xs uppercase bg-purple-100/80 px-3.5 py-1.5 rounded-full border border-purple-200">
             Réservations Beauté
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-2.5 sm:mt-3 mb-3 sm:mb-4">
             Prendre Rendez-vous en Ligne
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Planifiez votre soin dermo-esthétique, éclat ou corporel en quelques instants avec l'un de nos spécialistes experts.
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Planifiez votre soin dermo-esthétique, éclat ou corporel en quelques instants avec nos spécialistes expertes.
           </p>
         </div>
 
         {/* Global tab manager */}
-        <div className="flex justify-center mb-10 overflow-x-auto">
-          <div className="bg-white p-1.5 rounded-2xl shadow-md border border-purple-100 flex gap-2">
+        <div className="flex justify-center mb-6 sm:mb-10 w-full">
+          <div className="bg-white p-1 sm:p-1.5 rounded-2xl shadow-sm border border-purple-100 grid grid-cols-3 sm:flex gap-1 sm:gap-2 w-full max-w-lg sm:w-auto">
             <button
               onClick={() => { setActiveTab('book'); resetWizard(); }}
               id="tab-new-booking"
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition duration-300 ${
+              className={`flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold transition duration-300 text-center ${
                 activeTab === 'book'
                   ? 'bg-primary text-white shadow-md'
                   : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'
               }`}
             >
-              <CalendarIcon className="w-4 h-4" />
-              Nouveau Rendez-vous
+              <CalendarIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+              <span className="truncate">Réserver</span>
             </button>
             <button
               onClick={() => { setActiveTab('my-bookings'); setBookingStatus(BookingStatus.IDLE); }}
               id="tab-my-bookings"
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition duration-300 relative ${
+              className={`flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold transition duration-300 relative text-center ${
                 activeTab === 'my-bookings'
                   ? 'bg-primary text-white shadow-md'
                   : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'
               }`}
             >
-              <CalendarCheck2 className="w-4 h-4" />
-              Mes Réservations
+              <CalendarCheck2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+              <span className="truncate">Mes RDV</span>
               {savedBookings.length > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[10px] h-5 w-5 rounded-full flex items-center justify-center font-bold animate-pulse border-2 border-white">
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] h-4 w-4 rounded-full flex items-center justify-center font-bold animate-pulse border-2 border-white">
                   {savedBookings.length}
                 </span>
               )}
@@ -588,16 +591,16 @@ const Reservation: React.FC = () => {
             <button
               onClick={() => { setActiveTab('account'); setBookingStatus(BookingStatus.IDLE); }}
               id="tab-client-account"
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition duration-300 relative ${
+              className={`flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold transition duration-300 relative text-center ${
                 activeTab === 'account'
                   ? 'bg-primary text-white shadow-md'
                   : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'
               }`}
             >
-              <User className="w-4 h-4" />
-              {registeredUser ? `Espace Client` : 'Espace Client / Rappels'}
+              <User className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+              <span className="truncate">Compte</span>
               {registeredUser && (
-                <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-emerald-500"></span>
+                <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-emerald-500"></span>
               )}
             </button>
           </div>
@@ -813,37 +816,44 @@ const Reservation: React.FC = () => {
             <div className="lg:col-span-8 bg-white rounded-3xl shadow-xl border border-purple-100 overflow-hidden">
             
             {/* Step Wizard Header */}
-            <div className="bg-slate-900 text-white p-6 md:px-10 flex flex-nowrap items-center justify-between gap-2 overflow-x-auto border-b border-purple-500/20 scrollbar-none select-none">
-              {[
-                { n: 1, label: 'Soin' },
-                { n: 2, label: 'Praticien' },
-                { n: 3, label: 'Horaire' },
-                { n: 4, label: 'Client' }
-              ].map(step => (
+            <div className="bg-slate-900 text-white p-3.5 sm:p-6 md:px-10 flex flex-nowrap items-center justify-between gap-1 sm:gap-2 overflow-x-auto border-b border-purple-500/20 no-scrollbar select-none">
+              {(PRACTITIONERS.length > 0 
+                ? [
+                    { n: 1, stepNum: 1, label: 'Soin' },
+                    { n: 2, stepNum: 2, label: 'Praticien' },
+                    { n: 3, stepNum: 3, label: 'Horaire' },
+                    { n: 4, stepNum: 4, label: 'Client' }
+                  ]
+                : [
+                    { n: 1, stepNum: 1, label: 'Soin' },
+                    { n: 3, stepNum: 2, label: 'Horaire' },
+                    { n: 4, stepNum: 3, label: 'Client' }
+                  ]
+              ).map((step, idx, arr) => (
                 <div key={step.n} className="flex items-center shrink-0">
-                  <div className="flex items-center gap-2">
-                    <div className={`h-8 w-8 rounded-full font-bold text-xs flex items-center justify-center transition-all ${
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    <div className={`h-6 w-6 sm:h-8 sm:w-8 rounded-full font-bold text-[10px] sm:text-xs flex items-center justify-center transition-all ${
                       currentStep === step.n
-                        ? 'bg-primary text-white ring-4 ring-purple-600/35'
+                        ? 'bg-primary text-white ring-2 sm:ring-4 ring-purple-600/35'
                         : currentStep > step.n
                           ? 'bg-emerald-500 text-white'
                           : 'bg-slate-800 text-slate-400 border border-slate-700'
                     }`}>
-                      {currentStep > step.n ? '✓' : step.n}
+                      {currentStep > step.n ? '✓' : step.stepNum}
                     </div>
-                    <span className={`text-xs font-bold uppercase tracking-wider ${
+                    <span className={`text-[10px] sm:text-xs font-bold uppercase tracking-tight sm:tracking-wider ${
                       currentStep === step.n ? 'text-white' : 'text-slate-400'
                     }`}>
                       {step.label}
                     </span>
                   </div>
-                  {step.n < 4 && <div className="w-12 md:w-20 h-[2px] bg-slate-850 bg-slate-800 mx-3 rounded-full opacity-60"></div>}
+                  {idx < arr.length - 1 && <div className="w-5 sm:w-12 md:w-20 h-[2px] bg-slate-800 mx-1.5 sm:mx-3 rounded-full opacity-60"></div>}
                 </div>
               ))}
             </div>
 
             {/* MAIN WIZARD VIEWPORTS */}
-            <div className="p-6 md:p-10 min-h-[460px]">
+            <div className="p-4 sm:p-6 md:p-10 min-h-[420px]">
               
               {/* STEP 1: CHOOSE SERVICE */}
               {currentStep === 1 && (
@@ -921,7 +931,15 @@ const Reservation: React.FC = () => {
                       return (
                         <div
                           key={service.id}
-                          onClick={() => { setSelectedService(service); setCurrentStep(2); }}
+                          onClick={() => { 
+                            setSelectedService(service); 
+                            if (PRACTITIONERS.length === 0) {
+                              setSelectedPractitioner('any');
+                              setCurrentStep(3);
+                            } else {
+                              setCurrentStep(2);
+                            }
+                          }}
                           className={`group cursor-pointer rounded-2xl p-5 border-2 text-left transition-all flex flex-col justify-between h-full hover:border-primary hover:shadow-md ${
                             isSelected
                               ? 'border-primary bg-purple-50 shadow ring-1 ring-primary/35'
@@ -960,7 +978,7 @@ const Reservation: React.FC = () => {
               )}
 
               {/* STEP 2: CHOOSE PRACTITIONER */}
-              {currentStep === 2 && (
+              {currentStep === 2 && PRACTITIONERS.length > 0 && (
                 <div className="space-y-6 animate-fade-in">
                   <div className="flex items-center justify-between">
                     <h3 className="text-xl md:text-2xl font-bold text-gray-800 flex items-center gap-2">
@@ -1036,7 +1054,7 @@ const Reservation: React.FC = () => {
                       Sélectionnez un jour et un créneau horaire
                     </h3>
                     <button
-                      onClick={() => setCurrentStep(2)}
+                      onClick={() => setCurrentStep(PRACTITIONERS.length === 0 ? 1 : 2)}
                       className="text-xs font-bold text-primary hover:underline"
                     >
                       &larr; Retour étape précédente

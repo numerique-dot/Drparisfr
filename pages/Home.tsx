@@ -133,7 +133,7 @@ const Home: React.FC = () => {
           id: 'def-1', 
           name: "Sophie M.", 
           rating: 5, 
-          text: language === 'zh' ? "这里的全脸焕颜皮肤调理真的太神奇了！做完以后皮肤非常有光泽，整个人彻底放松。Aurélie的技术和服务绝对是行业天花板。" : language === 'en' ? "The Signature Facial treatment at D.R. Santé & Beauté is simply magical. My skin is glowing, facial features relaxed, and Aurélie's hospitality is outstanding." : "Le Soin Signature du visage chez D.R. Santé & Beauté est tout simplement magique. Ma peau est lumineuse, nettoyée en profondeur, et l'accueil d'Aurélie est exceptionnel.",
+          text: language === 'zh' ? "这里的全脸焕颜皮肤调理真的太神奇了！做完以后皮肤非常有光泽，整个人彻底放松。美容师的技术和服务非常贴心专业。" : language === 'en' ? "The Signature Facial treatment at D.R. Santé & Beauté is simply magical. My skin is glowing, facial features relaxed, and the hospitality is outstanding." : "Le Soin Signature du visage chez D.R. Santé & Beauté est tout simplement magique. Ma peau est lumineuse, nettoyée en profondeur, et l'accueil est exceptionnel.",
           service: "⭐ SOIN SIGNATURE — Visage",
           date: "14 Juin 2026"
         },
@@ -141,7 +141,7 @@ const Home: React.FC = () => {
           id: 'def-2', 
           name: "Jean-Marc L.", 
           rating: 5, 
-          text: language === 'zh' ? "非常温和精细的足部排毒SPA与穴位按摩。理疗师Mélissa特别温柔专注，极具耐心。这里是绝佳的心灵避风港！" : language === 'en' ? "Foot pedicure and massage executed with outstanding gentleness and premium precision. Mélissa is incredibly attentive. A pure therapeutic moment!" : "Beauté des pieds de luxe et massage d'une grande douceur et d'une précision remarquable. Mélissa Valois est d'une grande écoute. Un pur moment de décompression !",
+          text: language === 'zh' ? "非常温和精细的足部排毒SPA与穴位按摩。理疗师特别温柔专注，极具耐心。这里是绝佳的心灵避风港！" : language === 'en' ? "Foot pedicure and massage executed with outstanding gentleness and premium precision. The staff is incredibly attentive. A pure therapeutic moment!" : "Beauté des pieds de luxe et massage d'une grande douceur et d'une précision remarquable. L'équipe est d'une grande écoute. Un pur moment de décompression !",
           service: "V. BEAUTÉ DES PIEDS",
           date: "08 Juin 2026"
         },
@@ -231,7 +231,7 @@ const Home: React.FC = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-[700px] flex items-center justify-center bg-slate-950 overflow-hidden">
+      <section className="relative min-h-[520px] sm:min-h-[600px] md:h-[700px] flex items-center justify-center bg-slate-950 overflow-hidden py-14 sm:py-20">
         <div className="absolute inset-0 z-0">
           {/* Dynamic Hero Image - Manicure/Salon with Zoom Animation loaded from administration database */}
           <EditableImage 
@@ -246,25 +246,25 @@ const Home: React.FC = () => {
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto animate-slide-up">
-          <span className="inline-block px-3 py-1 mb-6 text-sm font-semibold tracking-wider text-purple-200 uppercase bg-purple-900/50 rounded-full backdrop-blur-sm border border-purple-500/30">
+          <span className="inline-block px-3 py-1 mb-4 sm:mb-6 text-xs sm:text-sm font-semibold tracking-wider text-purple-200 uppercase bg-purple-900/50 rounded-full backdrop-blur-sm border border-purple-500/30">
             {t('heroSubtitle')}
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-lg">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-7xl font-extrabold text-white mb-4 sm:mb-6 leading-tight tracking-tight drop-shadow-lg">
             {COMPANY_INFO.name}
           </h1>
-          <p className="text-xl md:text-2xl text-purple-100 mb-10 font-light max-w-2xl mx-auto">
+          <p className="text-sm sm:text-xl md:text-2xl text-purple-100 mb-8 sm:mb-10 font-light max-w-2xl mx-auto leading-relaxed">
             {local_t.heroTagline}
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto">
             <Link 
               to="/reservation" 
-              className="px-8 py-4 bg-primary text-white text-lg font-bold rounded-full hover:bg-accent transition-all duration-300 transform hover:-translate-y-1 shadow-[0_0_20px_rgba(124,58,237,0.5)] border border-purple-500/50"
+              className="w-full sm:w-auto px-7 py-3.5 sm:px-8 sm:py-4 bg-primary text-white text-base sm:text-lg font-bold rounded-full hover:bg-accent transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 shadow-[0_0_20px_rgba(124,58,237,0.5)] border border-purple-500/50 text-center"
             >
               {t('bookNow')}
             </Link>
             <Link 
               to="/services" 
-              className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white text-lg font-semibold rounded-full hover:bg-white/20 transition-all duration-300"
+              className="w-full sm:w-auto px-7 py-3.5 sm:px-8 sm:py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white text-base sm:text-lg font-semibold rounded-full hover:bg-white/20 transition-all duration-300 text-center"
             >
               {t('viewServices')}
             </Link>
@@ -273,30 +273,30 @@ const Home: React.FC = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="relative group">
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-purple-100 rounded-full z-0 group-hover:bg-purple-200 transition-colors duration-500"></div>
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-purple-50 rounded-full z-0"></div>
+              <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-20 h-20 sm:w-24 sm:h-24 bg-purple-100 rounded-full z-0 group-hover:bg-purple-200 transition-colors duration-500"></div>
+              <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-24 h-24 sm:w-32 sm:h-32 bg-purple-50 rounded-full z-0"></div>
               {/* Image of staff serving a client */}
               <EditableImage 
                 src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=600&h=800" 
                 alt="Équipe au service du client" 
-                className="relative z-10 rounded-2xl shadow-2xl w-full object-cover h-[500px] transform transition duration-500 group-hover:scale-[1.01]"
+                className="relative z-10 rounded-2xl shadow-xl w-full object-cover h-64 sm:h-80 md:h-[500px] transform transition duration-500 group-hover:scale-[1.01]"
               />
             </div>
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                 {local_t.aboutTitle}<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">{local_t.aboutTitleAccent}</span>
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6 leading-relaxed">
                 {local_t.aboutParagraph1}
               </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                 {local_t.aboutParagraph2}
               </p>
-              <Link to="/contact" className="text-primary font-bold hover:text-accent inline-flex items-center text-lg transition-colors">
+              <Link to="/contact" className="text-primary font-bold hover:text-accent inline-flex items-center text-base sm:text-lg transition-colors">
                 {local_t.findUs} <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </div>
@@ -376,29 +376,29 @@ const Home: React.FC = () => {
             </div>
             
             {/* Real-Time Live Counters */}
-            <div className="flex flex-wrap gap-4 bg-white/80 p-4 rounded-2xl border border-purple-100/60 backdrop-blur-sm shadow-sm font-sans">
-              <div className="px-4 py-2 border-r border-purple-100 last:border-0 text-center">
-                <span className="block text-2xl font-black text-primary">12</span>
-                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">{local_t.liveToday}</span>
+            <div className="grid grid-cols-3 w-full sm:w-auto divide-x divide-purple-100 bg-white/90 p-3 sm:p-4 rounded-2xl border border-purple-100/70 backdrop-blur-sm shadow-xs font-sans">
+              <div className="px-2 sm:px-4 py-1 sm:py-2 text-center">
+                <span className="block text-xl sm:text-2xl font-black text-primary">12</span>
+                <span className="text-[9px] sm:text-[10px] font-bold text-gray-500 uppercase tracking-tight sm:tracking-wider">{local_t.liveToday}</span>
               </div>
-              <div className="px-4 py-2 border-r border-purple-100 last:border-0 text-center">
-                <span className="block text-2xl font-black text-emerald-600">98%</span>
-                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider font-sans">{local_t.liveSatisfaction}</span>
+              <div className="px-2 sm:px-4 py-1 sm:py-2 text-center">
+                <span className="block text-xl sm:text-2xl font-black text-emerald-600">98%</span>
+                <span className="text-[9px] sm:text-[10px] font-bold text-gray-500 uppercase tracking-tight sm:tracking-wider">{local_t.liveSatisfaction}</span>
               </div>
-              <div className="px-4 py-2 last:border-0 text-center">
-                <span className="block text-2xl font-black text-accent">4</span>
-                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">{local_t.liveExperts}</span>
+              <div className="px-2 sm:px-4 py-1 sm:py-2 text-center">
+                <span className="block text-xl sm:text-2xl font-black text-accent">4</span>
+                <span className="text-[9px] sm:text-[10px] font-bold text-gray-500 uppercase tracking-tight sm:tracking-wider">{local_t.liveExperts}</span>
               </div>
             </div>
           </div>
 
-          {/* Realization Filters */}
-          <div className="flex flex-wrap gap-2.5 mb-10 justify-start items-center">
+          {/* Realization Filters - Touch swipeable on mobile */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-8 no-scrollbar touch-pan-x">
             {categories.map(category => (
               <button
                 key={category}
                 onClick={() => setActiveFilter(category)}
-                className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all duration-300 transform active:scale-95 ${
+                className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-bold tracking-wide transition-all duration-300 transform active:scale-95 shrink-0 ${
                   activeFilter === category
                     ? 'bg-primary text-white shadow-md shadow-purple-500/20 border border-primary'
                     : 'bg-white text-gray-600 hover:bg-gray-50 border border-purple-100'
@@ -523,110 +523,112 @@ const Home: React.FC = () => {
       </section>
 
       {/* Meet the Team Section */}
-      <section className="py-24 bg-white relative overflow-hidden" id="notre-equipe">
-        {/* Ambient background decoration */}
-        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-purple-100/30 rounded-full blur-3xl -translate-y-1/2 pointer-events-none"></div>
-        <div className="absolute bottom-0 left-10 w-[300px] h-[300px] bg-purple-50 rounded-full blur-2xl pointer-events-none"></div>
+      {PRACTITIONERS.length > 0 && (
+        <section className="py-24 bg-white relative overflow-hidden" id="notre-equipe">
+          {/* Ambient background decoration */}
+          <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-purple-100/30 rounded-full blur-3xl -translate-y-1/2 pointer-events-none"></div>
+          <div className="absolute bottom-0 left-10 w-[300px] h-[300px] bg-purple-50 rounded-full blur-2xl pointer-events-none"></div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold tracking-widest text-[#9333EA] bg-purple-50 rounded-full uppercase mb-4 border border-purple-100">
-              <Sparkles className="w-3.5 h-3.5 text-[#9333EA]" />
-              L'Art de la Précision
-            </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
-              {local_t.practitionerTitle}
-            </h2>
-            <div className="w-16 h-1 bg-[#9333EA] mx-auto rounded-full mb-6"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-              {local_t.practitionerSubtitle}
-            </p>
-          </div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            {/* Section Header */}
+            <div className="text-center mb-16">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold tracking-widest text-[#9333EA] bg-purple-50 rounded-full uppercase mb-4 border border-purple-100">
+                <Sparkles className="w-3.5 h-3.5 text-[#9333EA]" />
+                L'Art de la Précision
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
+                {local_t.practitionerTitle}
+              </h2>
+              <div className="w-16 h-1 bg-[#9333EA] mx-auto rounded-full mb-6"></div>
+              <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+                {local_t.practitionerSubtitle}
+              </p>
+            </div>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {PRACTITIONERS.map((practitioner) => (
-              <div 
-                key={practitioner.id}
-                id={`practitioner-card-${practitioner.id}`}
-                className="bg-white rounded-3xl border border-purple-100/40 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full overflow-hidden group"
-              >
-                {/* Photo Placeholder / Image wrapper */}
-                <div className="relative h-80 overflow-hidden bg-purple-50 shrink-0">
-                  <EditableImage 
-                    src={practitioner.image} 
-                    alt={practitioner.name}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                    referrerPolicy="no-referrer"
-                  />
-                  {/* Subtle glass overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950/40 via-transparent to-transparent opacity-60"></div>
-                  
-                  {/* Experience Badge */}
-                  <span className="absolute bottom-4 left-4 inline-flex items-center gap-1 px-3 py-1 bg-white/95 backdrop-blur-sm text-gray-900 text-xs font-bold rounded-full shadow-sm">
-                    <Clock className="w-3.5 h-3.5 text-primary" />
-                    {practitioner.experience} {local_t.yearsExp}
-                  </span>
-                </div>
+            {/* Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {PRACTITIONERS.map((practitioner) => (
+                <div 
+                  key={practitioner.id}
+                  id={`practitioner-card-${practitioner.id}`}
+                  className="bg-white rounded-3xl border border-purple-100/40 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full overflow-hidden group"
+                >
+                  {/* Photo Placeholder / Image wrapper */}
+                  <div className="relative h-80 overflow-hidden bg-purple-50 shrink-0">
+                    <EditableImage 
+                      src={practitioner.image} 
+                      alt={practitioner.name}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                      referrerPolicy="no-referrer"
+                    />
+                    {/* Subtle glass overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-950/40 via-transparent to-transparent opacity-60"></div>
+                    
+                    {/* Experience Badge */}
+                    <span className="absolute bottom-4 left-4 inline-flex items-center gap-1 px-3 py-1 bg-white/95 backdrop-blur-sm text-gray-900 text-xs font-bold rounded-full shadow-sm">
+                      <Clock className="w-3.5 h-3.5 text-primary" />
+                      {practitioner.experience} {local_t.yearsExp}
+                    </span>
+                  </div>
 
-                {/* Content Panel */}
-                <div className="p-6 flex flex-col justify-between flex-grow">
-                  <div>
-                    {/* Header: Name and Role */}
-                    <div className="mb-4">
-                      <span className="inline-block text-[10px] font-black tracking-wider text-primary uppercase bg-purple-50/80 px-2.5 py-1 rounded-full border border-purple-100 mb-2">
-                        {translateText(practitioner.role)}
-                      </span>
-                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">
-                        {practitioner.name}
-                      </h3>
-                      <p className="text-xs font-semibold text-[#8B5CF6] mt-1 leading-normal">
-                        {translateText(practitioner.specialty)}
+                  {/* Content Panel */}
+                  <div className="p-6 flex flex-col justify-between flex-grow">
+                    <div>
+                      {/* Header: Name and Role */}
+                      <div className="mb-4">
+                        <span className="inline-block text-[10px] font-black tracking-wider text-primary uppercase bg-purple-50/80 px-2.5 py-1 rounded-full border border-purple-100 mb-2">
+                          {translateText(practitioner.role)}
+                        </span>
+                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">
+                          {practitioner.name}
+                        </h3>
+                        <p className="text-xs font-semibold text-[#8B5CF6] mt-1 leading-normal">
+                          {translateText(practitioner.specialty)}
+                        </p>
+                      </div>
+
+                      {/* Bio text */}
+                      <p className="text-gray-600 text-sm leading-relaxed mb-6 font-light">
+                        {translateText(practitioner.bio)}
                       </p>
                     </div>
 
-                    {/* Bio text */}
-                    <p className="text-gray-600 text-sm leading-relaxed mb-6 font-light">
-                      {translateText(practitioner.bio)}
-                    </p>
-                  </div>
-
-                  {/* Call To Action Book Provider */}
-                  <div className="pt-4 border-t border-purple-100/50 mt-auto">
-                    <Link
-                      to={`/reservation?practitioner=${practitioner.id}`}
-                      id={`book-practitioner-${practitioner.id}`}
-                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-gray-900 text-white hover:bg-primary text-xs font-bold uppercase tracking-wide shadow-md hover:shadow-lg hover:shadow-purple-400/20 active:scale-95 transition-all duration-300"
-                    >
-                      {local_t.practitionerRdv}
-                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    {/* Call To Action Book Provider */}
+                    <div className="pt-4 border-t border-purple-100/50 mt-auto">
+                      <Link
+                        to={`/reservation?practitioner=${practitioner.id}`}
+                        id={`book-practitioner-${practitioner.id}`}
+                        className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-gray-900 text-white hover:bg-primary text-xs font-bold uppercase tracking-wide shadow-md hover:shadow-lg hover:shadow-purple-400/20 active:scale-95 transition-all duration-300"
+                      >
+                        {local_t.practitionerRdv}
+                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          {/* Core Values banner */}
-          <div className="mt-20 p-8 md:p-10 bg-purple-50/40 rounded-3xl border border-purple-100/50 flex flex-col md:flex-row items-center justify-between gap-6 max-w-4xl mx-auto shadow-sm backdrop-blur-sm">
-            <div className="max-w-xl text-center md:text-left">
-              <h4 className="text-xl font-bold text-gray-900 mb-2">{local_t.customAdviceTitle}</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {local_t.customAdviceText}
-              </p>
-            </div>
-            <div className="shrink-0 w-full md:w-auto">
-              <Link 
-                to="/reservation"
-                className="w-full md:w-auto inline-flex items-center justify-center px-6 py-3.5 bg-primary text-white hover:bg-accent font-bold rounded-xl text-xs uppercase tracking-wider shadow-md hover:shadow-lg hover:shadow-purple-400/10 active:scale-[0.98] transition-all"
-              >
-                {t('bookNow')}
-              </Link>
+            {/* Core Values banner */}
+            <div className="mt-20 p-8 md:p-10 bg-purple-50/40 rounded-3xl border border-purple-100/50 flex flex-col md:flex-row items-center justify-between gap-6 max-w-4xl mx-auto shadow-sm backdrop-blur-sm">
+              <div className="max-w-xl text-center md:text-left">
+                <h4 className="text-xl font-bold text-gray-900 mb-2">{local_t.customAdviceTitle}</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {local_t.customAdviceText}
+                </p>
+              </div>
+              <div className="shrink-0 w-full md:w-auto">
+                <Link 
+                  to="/reservation"
+                  className="w-full md:w-auto inline-flex items-center justify-center px-6 py-3.5 bg-primary text-white hover:bg-accent font-bold rounded-xl text-xs uppercase tracking-wider shadow-md hover:shadow-lg hover:shadow-purple-400/10 active:scale-[0.98] transition-all"
+                >
+                  {t('bookNow')}
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Real-time Achievement Detail Lightbox Modal */}
       {selectedRealization && (

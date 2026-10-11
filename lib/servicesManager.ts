@@ -4,7 +4,7 @@ import { SERVICES as DEFAULT_SERVICES } from '../constants';
 import { db } from './firebase';
 import { collection, getDocs, doc, setDoc, deleteDoc, writeBatch } from 'firebase/firestore';
 
-const SERVICES_STORAGE_KEY = 'dr_salon_services_v3';
+const SERVICES_STORAGE_KEY = 'dr_salon_services_v4';
 const CUSTOM_CATEGORIES_KEY = 'dr_salon_custom_categories';
 
 // Default categories extracted from standard catalog
@@ -16,7 +16,8 @@ export const DEFAULT_CATEGORIES = [
   "III. EXTENSION DES CILS",
   "IV. BEAUTÉ DES MAINS",
   "V. BEAUTÉ DES PIEDS",
-  "VI. POSE FAUX-ONGLES"
+  "VI. POSE FAUX-ONGLES",
+  "✦ Nouveautés « Plus »"
 ];
 
 // Preset photographic asset URLs for quick selection when creating or editing services
